@@ -1,4 +1,5 @@
 ﻿using BradyWeather.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace BradyWeather.Controllers
 {
+    //RK this will require every method inside home controller can be accessed only if you authorized except Index() see bellow, which will redirect to home page
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

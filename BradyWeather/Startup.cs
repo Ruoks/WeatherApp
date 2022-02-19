@@ -26,7 +26,7 @@ namespace BradyWeather
         {
             services.AddAuthentication(options =>
             {
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
                 .AddCookie(options =>
                 {
@@ -60,6 +60,7 @@ namespace BradyWeather
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
