@@ -51,18 +51,23 @@ namespace BradyWeather.Controllers
 
             List<WeatherResponse> weatherResponse = _forecastRepository.GetForecast(coordinateResponse);
 
-            City viewModel = new City();
+            List<City> viewModel = new List<City>();
 
             if (weatherResponse != null)
             {
                 for(int i = 0; i < weatherResponse.Count; i++)
                 {
-                    viewModel.Name = weatherResponse[i].name;
-                    viewModel.Humidity = weatherResponse[i].main.humidity;
-                    viewModel.Pressure = weatherResponse[i].main.pressure;
-                    viewModel.Temp = weatherResponse[i].main.temp;
-                    viewModel.Weather = weatherResponse[i].weather[0].main;
-                    viewModel.Wind = weatherResponse[i].wind.speed;
+                    City modelData = new City();
+
+                    modelData.Country = weatherResponse[i].sys.country;
+                    modelData.Name = weatherResponse[i].name;
+                    modelData.Humidity = weatherResponse[i].main.humidity;
+                    modelData.Pressure = weatherResponse[i].main.pressure;
+                    modelData.Temp = weatherResponse[i].main.temp;
+                    modelData.Weather = weatherResponse[i].weather[0].main;
+                    modelData.Wind = weatherResponse[i].wind.speed;
+
+                    viewModel.Add(modelData);
                 }
             }
             return View(viewModel);

@@ -1,9 +1,10 @@
 ﻿
-@model BradyWeather.Models.City
+@model IEnumerable<City>
 
 @{
     ViewData["Title"] = "City";
 }
+
 
 <div class="container">
 
@@ -13,28 +14,32 @@
 
             <h2>Forecast for the selected city</h2>
 
-            <label asp-for="Name"></label>
-            <span class="badge">@Model.Name</span>
-            <br />
+            <table cellpadding="10" cellspacing="10">
+                <tr>
+                    <th>Country</th>
+                    <th>Name</th>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
+                    <th>Pressure</th>
+                    <th>Wind</th>
+                    <th>Weather</th>
+                </tr>
 
-            <label asp-for="Temp"></label>
-            <span class="badge">@Model.Temp °C</span>
-            <br />
+                @foreach (City city in Model)
+                {
+                    <tr>
+                        <td>@city.Country</td>
+                        <td>@city.Name</td>
+                        <td>@city.Temp °C</td>
+                        <td>@city.Humidity %</td>
+                        <td>@city.Pressure Hpa</td>
+                        <td>@city.Wind Km/h</td>
+                        <td>@city.Weather</td>
+                    </tr>
+                }
 
-            <label asp-for="Humidity"></label>
-            <span class="badge">@Model.Humidity %</span>
-            <br />
+            </table>
 
-            <label asp-for="Pressure"></label>
-            <span class="badge">@Model.Pressure Hpa</span>
-            <br />
-
-            <label asp-for="Wind"></label>
-            <span class="badge">@Model.Wind Km/h</span>
-            <br />
-
-            <label asp-for="Weather"></label>
-            <span class="badge">@Model.Weather</span>
 
         </div>
 

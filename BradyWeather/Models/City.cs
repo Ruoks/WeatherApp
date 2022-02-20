@@ -11,6 +11,9 @@ namespace BradyWeather.Models
         [Display(Name = "City:")]
         public string Name { get; set; }
 
+        [Display(Name = "Country:")]
+        public string Country { get; set; }
+
         [Display(Name = "Temperature:")]
         public double Temp { get; set; }
 
