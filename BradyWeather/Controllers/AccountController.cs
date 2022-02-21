@@ -27,7 +27,7 @@ namespace BradyWeather.Controllers
         {
             await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("index", "home");
+            return RedirectToAction("SearchCity", "Weather");
         
         }
     }

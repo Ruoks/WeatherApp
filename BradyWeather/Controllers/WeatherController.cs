@@ -12,8 +12,8 @@ using BradyWeather.Repositories;
 
 namespace BradyWeather.Controllers
 {
-        //RK this will require every method inside home controller can be accessed only if you authorized except Index() see bellow, which will redirect to home page
-    //[Authorize] todo temp commented out
+     //RK this will require every method inside home controller can be accessed only if you authorized except Index() see bellow, which will redirect to home page
+    [Authorize] 
     public class WeatherController : Controller
     {
         private readonly IForecastRepository _forecastRepository;

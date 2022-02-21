@@ -72,7 +72,7 @@ namespace BradyWeather
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Weather}/{action=SearchCity}/{id?}");
             });
         }
     }
