@@ -16,7 +16,7 @@ namespace BradyWeather.Controllers
         [Route("google-login")]
         public IActionResult GoogleLogin()
         {
-            //this endpoint after successfull authentication will redirect back to 
+            //this endpoint after successfull authentication will redirect back to Weather Page
             var properties = new AuthenticationProperties { RedirectUri = Url.Action("GoogleResponse") };
 
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);

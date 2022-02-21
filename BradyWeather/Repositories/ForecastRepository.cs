@@ -55,7 +55,7 @@ namespace BradyWeather.Repositories
                 // Deserialize the string content into JToken object
                 var content = JsonConvert.DeserializeObject<JToken>(response.Content);
 
-                // Deserialize the JToken object into our coordinate Class
+                // Deserialize the JToken object into our GeoCooding Class
                 return content.ToObject<List<GeoCodingResponse>>();
             }
 

@@ -8,12 +8,12 @@ namespace BradyWeather.OpenWeatherMapModels
     public class GeoCodingResponse
     {
 
-            public string Name { get; set; }
-            public LocalNames LocalName { get; set; }
-            public double Lat { get; set; }
-            public double Lon { get; set; }
-            public string Country { get; set; }
-            public string State { get; set; }
+        public string Name { get; set; }
+        public LocalNames LocalName { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+        public string Country { get; set; }
+        public string State { get; set; }
       
     }
 

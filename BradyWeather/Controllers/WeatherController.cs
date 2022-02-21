@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BradyWeather.OpenWeatherMapModels;
 using BradyWeather.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace BradyWeather.Controllers
 {
@@ -17,11 +18,14 @@ namespace BradyWeather.Controllers
     public class WeatherController : Controller
     {
         private readonly IForecastRepository _forecastRepository;
+        private readonly ILogger<WeatherController> _logger;
 
         // Dependency Injection
-        public WeatherController(IForecastRepository forecastAppRepo)
+        public WeatherController(IForecastRepository forecastAppRepo, ILogger<WeatherController> logger)
         {
             _forecastRepository = forecastAppRepo;
+            _logger = logger;
+
         }
 
         // GET: BradyWeather/SearchCity
@@ -71,6 +75,12 @@ namespace BradyWeather.Controllers
                 }
             }
             return View(viewModel);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
